@@ -5,6 +5,10 @@
 postgres_data/
 pgadmin_data/
 
+# Backups
+backups/
+*.sql
+
 # Docker volumes
 volumes/
 

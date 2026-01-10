@@ -11,5 +11,5 @@ CREATE TABLE IF NOT EXISTS users (
 
 -- Insert sample data
 INSERT INTO users (username, email) VALUES
-    ('kelvin', 'kelvin@example.com'),
+    ('kelvin', 'kelvin@example.com')
 ON CONFLICT DO NOTHING;
