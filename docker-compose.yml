@@ -13,17 +13,19 @@ services:
       - postgres_data:/var/lib/postgresql/data
       - ./init-scripts:/docker-entrypoint-initdb.d
     networks:
-      - postgre-docker_postgres_network
+      - postgres_network
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
       interval: 10s
       timeout: 5s
       retries: 5
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
 volumes:
   postgres_data:
     driver: local
 
 networks:
-  postgre-docker_postgres_network:
-    external: true
+  postgres_network:
+    driver: bridge
